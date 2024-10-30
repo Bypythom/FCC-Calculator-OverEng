@@ -1,0 +1,77 @@
+#root {
+  --white: white;
+  --light-gray: #f0f0f0;
+  --dark-gray: #6c6c6c;
+  --black: black;
+  -orange: orange;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#answer {
+  display: flex;
+  height: 50px;
+  font-size: 45px;;
+  background-color: white;
+  color: black;
+  width: 250px;
+
+}
+
+#calculator {
+  display: grid;
+  gap: 5px;
+  grid-template-areas:
+      "clear negative percentage divide"
+      "seven eight nine multiply"
+      "four five six subtract"
+      "one two three add"
+      "zero zero decimal equals";
+  grid-template-columns: repeat(4, 1fr);
+  width: 250px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: hwb(101 22% 71%);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+}
+
+button.light-gray {
+  background-color: #e0e0e0;
+}
+
+button.dark-gray {
+  background-color: #505050;
+  color: white;
+}
+
+button.orange {
+  background-color: #f1a33c;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#expression {
+  font-size: 25px;
+  height: 30px;
+}
+
+#display {
+  color: black;
+}
