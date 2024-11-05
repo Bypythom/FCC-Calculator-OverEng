@@ -3,7 +3,7 @@
   --light-gray: #f0f0f0;
   --dark-gray: #6c6c6c;
   --black: black;
-  -orange: orange;
+  --orange: orange;
 }
 
 .container {
@@ -14,14 +14,31 @@
   height: 100vh;
 }
 
-#answer {
-  display: flex;
+#display, #answer {
+  width: 100%;
+  max-width: 250px; /* To limit the width within the container */
+}
+
+#display {
+  font-size: 25px;
   height: 50px;
-  font-size: 45px;;
+  color: black;
+  background-color: lightgray;
+  text-align: right;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 5px 5px 0 0; /* Rounded top corners */
+}
+
+#answer {
+  height: 50px;
+  font-size: 30px;
   background-color: white;
   color: black;
-  width: 250px;
-
+  text-align: right;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 0 0 5px 5px; /* Rounded bottom corners */
 }
 
 #calculator {
@@ -34,7 +51,8 @@
       "one two three add"
       "zero zero decimal equals";
   grid-template-columns: repeat(4, 1fr);
-  width: 250px;
+  width: 100%;
+  max-width: 250px; /* Limit the calculator width */
   margin: auto;
   margin-top: 20px;
   background-color: hwb(101 22% 71%);
@@ -67,11 +85,6 @@ button:active {
   transform: scale(0.95);
 }
 
-#expression {
-  font-size: 25px;
-  height: 30px;
-}
-
-#display {
-  color: black;
+#equals {
+  grid-column: span 2;
 }
