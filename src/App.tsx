@@ -11,9 +11,9 @@ function App() {
   };
 
   const sanitizeInput = (input: string) => {
-    // Replace multiple consecutive operators with the last operator in the sequence
-    return input.replace(/([*/+\-])\s*([*/+\-]+)/g, '$2');
-  };
+    return input.replace(/([*/+])\s*([*/+]+)/g, '$2') // Replace consecutive operators except '-'
+      .replace(/([*/+])\s*-\s*(\d)/g, '$1 -$2');      // Treat '-' following an operator as a negative sign
+  };  
 
   const buttonPress = (symbol: string) => {
     console.log(symbol);
@@ -45,7 +45,7 @@ function App() {
       setExpression(expression + symbol);
     } else if (symbol === ".") {
       const lastNumber = expression.split(/[+\-/*]/g).pop();
-      if (lastNumber.includes(".")) return;
+      if (lastNumber?.includes(".")) return;
       setExpression(expression + symbol);
     } else {
       if (expression.charAt(0) === "0") {
